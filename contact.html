@@ -62,22 +62,22 @@
               <div class="form-row two-col-form">
                 <label>
                   <span>Full name</span>
-                  <input type="text" placeholder="Your name" />
+                  <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
                 </label>
                 <label>
                   <span>Email address</span>
-                  <input type="email" placeholder="Your email" />
+                  <input type="email" name="email" placeholder="Your email" autocomplete="email" required />
                 </label>
               </div>
 
               <div class="form-row two-col-form">
                 <label>
                   <span>Phone number</span>
-                  <input type="tel" placeholder="Your phone" />
+                  <input type="tel" name="phone" placeholder="Your phone" autocomplete="tel" />
                 </label>
                 <label>
                   <span>Event type</span>
-                  <select>
+                  <select name="eventType">
                     <option>Wedding</option>
                     <option>Social Impact Events</option>
                     <option>Live Entertainment Event</option>
@@ -91,15 +91,16 @@
 
               <label>
                 <span>Event date</span>
-                <input type="date" />
+                <input type="date" name="eventDate" />
               </label>
 
               <label>
                 <span>Tell us about your event</span>
-                <textarea rows="6" placeholder="Share details about your event, venue, ideas, and guest count..."></textarea>
+                <textarea name="message" rows="6" placeholder="Share details about your event, venue, ideas, and guest count..." required></textarea>
               </label>
 
               <button type="submit" class="btn btn-primary">Send request</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
 
@@ -110,7 +111,7 @@
             </div>
             <div class="info-card contact-card">
               <h3>Email</h3>
-              <p>hello@goldennestevents.com<br />hello@eventsconsultation.com</p>
+              <p>hulemevents@gmail.com</p>
             </div>
             <div class="info-card contact-card social-contact-card">
               <h3>Follow us</h3>
@@ -150,7 +151,7 @@
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
           <ul class="footer-contact-list">
-            <li>hello@hulemevents.com</li>
+            <li>hulemevents@gmail.com</li>
             <li>+2519-48-18-82-94</li>
           </ul>
         </div>

@@ -100,16 +100,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      const button = form.querySelector('button[type="submit"]');
-      if (button) {
-        const originalText = button.textContent;
-        button.textContent = 'Request sent';
-        button.disabled = true;
-        setTimeout(() => {
-          button.textContent = originalText;
-          button.disabled = false;
-          form.reset();
-        }, 2000);
+      const formData = new FormData(form);
+      const fields = [
+        ['Name', formData.get('name')],
+        ['Email', formData.get('email')],
+        ['Phone', formData.get('phone') || 'Not provided'],
+        ['Event type', formData.get('eventType')],
+        ['Event date', formData.get('eventDate') || 'Not provided'],
+        ['Event details', formData.get('message')],
+      ];
+      const subject = `Consultation request from ${formData.get('name')}`;
+      const body = fields.map(([label, value]) => `${label}: ${value}`).join('\n\n');
+      const mailtoUrl = `mailto:hulemevents@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const status = form.querySelector('.form-status');
+
+      window.location.href = mailtoUrl;
+      if (status) {
+        status.textContent = 'Your email app should open with this request addressed to hulemevents@gmail.com. Please send the email there to complete your request.';
       }
     });
   }
